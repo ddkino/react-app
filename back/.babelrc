@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "env",
+    "flow"
+  ],
+  "plugins": [
+    "syntax-async-functions",
+    "syntax-dynamic-import",
+    "transform-async-to-generator",
+    "transform-decorators-legacy",
+    "transform-es2015-arrow-functions",
+    [
+      "transform-es2015-classes",
+      {
+        "loose": false
+      }
+    ],
+    "transform-flow-strip-types",
+    "transform-object-rest-spread",
+    "transform-regenerator",
+    "transform-runtime"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+  }
+}

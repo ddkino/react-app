@@ -1,0 +1,118 @@
+{
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "React": true
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    },
+    "react": {
+      "pragma": "React",
+      // Pragma to use, default to "React"
+      "version": "16.1.1"
+      // React version, default to the latest React stable release
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": [
+    "react",
+    "flowtype",
+    "reselect",
+    "import",
+    "graphql"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "standard",
+    "standard-react",
+    "prettier"
+  ],
+  "rules": {
+    "no-throw-literal": 0,
+    "vars-on-top": 0,
+    "no-unused-expressions": "error",
+    "semi": [
+      "error",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "no-console": 0,
+    //    "no-undef": ["off"],
+    //    "no-unused-vars": ["off"],
+    // comma-dangle : ok
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    //    "eol-last": ["off"]
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ],
+    "camelcase": [
+      0,
+      {
+        "properties": "never"
+      }
+    ],
+    "no-useless-escape": [
+      "off"
+    ],
+    // so-so
+    //    "sort-imports": ["error", {
+    //      "ignoreCase": false,
+    //      "ignoreMemberSort": false,
+    //      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    //    }],
+    //    "graphql/template-strings": ["error", {
+    //      // Import default settings for your GraphQL client. Supported values:
+    //      // 'apollo', 'relay', 'lokka', 'literal'
+    //      "env": "apollo"
+    //
+    //      // Import your schema JSON here
+    //      // TODO
+    //      //schemaJson: require('./schema.json'),
+    //
+    //      // OR provide absolute path to your schema JSON
+    //      // schemaJsonFilepath: path.resolve(__dirname, './schema.json'),
+    //
+    //      // OR provide the schema in the Schema Language format
+    //      // schemaString: printSchema(schema),
+    //
+    //      // tagName is gql by default
+    //    }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-tag-spacing": 0,
+    "react/no-unused-prop-types": 1,
+    "reselect/first-param-name": "error",
+    "reselect/maximum-arity": "error",
+    "reselect/second-param-destructured": "error",
+    "reselect/call": "error",
+    "reselect/prefer-create-selector": "warn",
+    "import/order": 2
+    // ok
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": false,
+    "mocha": false,
+    "es6": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb/base",
+    "plugin:import/errors"
+  ],
+  "rules": {
+    "camelcase": 0,
+    "no-throw-literal": 0,
+    "vars-on-top": 0,
+    "no-unused-expressions": "error",
+    "semi": [
+      "error",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "no-console": 0,
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "import/order": 2,
+    "object-curly-spacing": "off",
+    "max-len": ["warn", 120]
+  }
+}

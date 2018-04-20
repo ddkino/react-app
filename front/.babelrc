@@ -1,0 +1,32 @@
+{
+  "presets": [
+    "env",
+    "flow",
+    "react"
+  ],
+  "plugins": [
+    "react-require",
+    "syntax-async-functions",
+    "syntax-dynamic-import",
+    "transform-async-to-generator",
+    "transform-class-properties",
+    "transform-decorators-legacy",
+    "transform-es2015-arrow-functions",
+    [
+      "transform-es2015-classes",
+      {
+        "loose": true
+      }
+    ],
+    "transform-flow-strip-types",
+    "transform-object-rest-spread",
+    "transform-regenerator",
+    "transform-runtime",
+    "graphql-tag"
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-react-remove-prop-types"]
+    }
+  }
+}
