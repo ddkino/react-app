@@ -1,0 +1,45 @@
+## User == UserPrivate
+
+type User {
+  user_id: ID
+  username: String
+  username_alt: String
+  avatar_filename: String ## url server file
+  role: String
+  zones: [String]
+  preferences: JSON
+  email: String
+  phone: String
+  emails: [String]
+  phones: [String]
+  contacts: [UserPublic]
+  datetime_created_at: DateTime
+  datetime_updated_at: DateTime
+  datetime_signin_at: DateTime
+  expiresAt: DateTime
+  token: String ## token when login
+}
+
+
+type UserPublic {
+  user_id: ID
+  username: String
+  username_alt: String
+  avatar_filename: String
+  datetime_created_at: DateTime
+}
+###############################
+# PAYLOAD
+###############################
+
+type UserPayload {
+  password_current: String
+  password_new: String
+  username_alt: String
+  role: String
+  preferences: JSON
+  email: String
+  phone: String
+  avatar: String
+}
+

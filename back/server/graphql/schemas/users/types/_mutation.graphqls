@@ -1,0 +1,35 @@
+input UserRegisterInput {
+  user_id: ID
+  username: String!
+  password: String!
+  username_alt: String
+  role: String
+  preferences: JSON
+  email: String
+  phone: String
+}
+
+input UserInput {
+  password_current: String
+  password_new: String
+  username_alt: String
+  role: String
+  preferences: JSON
+  email: String
+  phone: String
+  avatar: String
+}
+
+
+# todo change return values of mutations for complete data
+type Mutation {
+  userUpdatePassword(user_id: ID!, input: UserInput!): UserPayload
+  userUpdateEmail(user_id: ID!, input: UserInput!): UserPayload
+  userRegister(input: UserRegisterInput): User
+  userRegisterValidation(user_id: ID!): User
+  userUpdatePreferences(user_id: ID!, input: UserInput!): UserPayload
+  userUpdatePseudo(user_id: ID!, input: UserInput!): UserPayload
+  userUploadAvatar(user_id: ID!, input: UserInput!): UserPayload
+}
+
+

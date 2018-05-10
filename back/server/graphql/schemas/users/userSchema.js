@@ -1,6 +1,6 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import typeDefs from './userType';
-import userResolver from './userResolver';
+import typeDefs from './types';
+import userResolver from './resolver';
 
 const RootQuery = `
   type RootQuery {

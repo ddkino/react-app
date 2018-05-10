@@ -113,13 +113,7 @@ export const register = async (input, withEmail = true) => {
   const passwordEncrypted = await encrypt(input.password);
   const crypto = new Crypto();
   const emailEncrypted = crypto.encrypt(input.email);
-  const user_id = cassandra.types.Uuid.random();
-  const token = jwt.sign(
-    {user_id, role: UserConfig.role},
-    JwtConfig.secret,
-    {expiresIn: JwtConfig.expiresIn}
-  );
-
+  const user_id = input.user_id ? input.user_id : cassandra.types.Uuid.random();
   /**
    * init if not exists zones &  preferences
    */
@@ -143,7 +137,6 @@ export const register = async (input, withEmail = true) => {
   const query = `INSERT INTO users (${Object.keys(userData)}) VALUES (${new Array(Object.keys(userData).length).fill('?')})`;
   const result = await cha_Global.execute(query, Object.values(userData), {prepare: true});
   if (result) {
-    const expiresAt = JwtConfig.getExpiresdate();
     /**
      * send mail by nats
      */
@@ -163,9 +156,7 @@ export const register = async (input, withEmail = true) => {
     DbEventSuccess.emit('USER_REGISTER', null, userData);
     return {
       ...userData,
-      token,
-      expiresAt,
-      email: crypto.decrypt(userData.email),
+      email: input.email,
     };
   }
   DbEventError.emit('USER_REGISTER', result, userData);
@@ -186,7 +177,7 @@ export const registerValidation = async (user_id) => {
 };
 
 /**
- * todo -> close account ? 
+ * todo -> close account ? remove all ch@
  * not exposed to resolvers
  */
 export const deleteUser = async (user_id) => {

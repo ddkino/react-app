@@ -1,0 +1,14 @@
+type Query {
+  userFindByUsername(username: String!): UserPublic
+  userFindById(user_id: ID!): UserPublic
+  userById(user_id: ID!): User
+  userPublicById(user_id: ID!): UserPublic
+  userByEmail(email: String!): User
+  userByPhone(phone: String!): User
+  userByUsername(username: String!): User
+  userLogin(login: String!, password: String!, method: String!): User
+  userLoginByUsername(username: String!, password: String!): User
+  userLoginByPhone(phone: String!, password: String!): User
+  userLoginByEmail(email: String!, password: String!): User
+  userSearchByUsername(username: String!): [UserPublic!]
+}
