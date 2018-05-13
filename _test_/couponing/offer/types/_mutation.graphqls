@@ -1,8 +1,0 @@
-input offerByIdInput {
-  id: ID!
-  userId: ID!
-}
-
-type Mutation {
-  offerCreate: Offer
-}
