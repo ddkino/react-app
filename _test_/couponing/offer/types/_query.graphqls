@@ -1,0 +1,4 @@
+type Query {
+  offers: [Offer]
+  offerById(id: ID!): Offer
+}
