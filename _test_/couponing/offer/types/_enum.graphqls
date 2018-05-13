@@ -1,9 +1,0 @@
-enum discountEnum {
-  PERCENT
-  AMOUNT
-}
-
-enum eanOriginEnum {
-  PROVIDER
-  BRAND
-}
